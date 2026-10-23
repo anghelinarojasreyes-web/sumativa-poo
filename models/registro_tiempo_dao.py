@@ -109,3 +109,5 @@ class RegistroTiempoDAO:
             return False
         finally:
             conn.close()
+
+ 

@@ -11,6 +11,7 @@ class ProyectoView:
         print("5.- Imprimir todos los proyectos")
         print("6.- Asignar empleado a proyecto")
         print("7.- Quitar empleado de proyecto")
+        print("8.- Ver empleados asignados a un proyecto")
         print("0.- Volver")
         return leer_numero("Seleccione una opción: ")
 

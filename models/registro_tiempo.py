@@ -8,4 +8,4 @@ class RegistroTiempo:
         self.proyecto = proyecto
 
     def __str__(self):
-        return f"Registro [ID: {self.id_registro}] | {self.fecha} | {self.horas_trabajadas} horas | {self.descripcion}"
+        return f"Registro [ID: {self.id_registro}] | Fecha: {self.fecha} | Horas: {self.horas_trabajadas} | Descripción: {self.descripcion} | Empleado: {self.empleado.nombre} | Proyecto: {self.proyecto.nombre}"

@@ -24,6 +24,8 @@ class ProyectoController:
                 self.asignar_empleado()
             elif opcion == 7:
                 self.quitar_empleado()
+            elif opcion == 8:
+                self.ver_empleados()
             elif opcion == 0:
                 break
             else:
@@ -111,3 +113,13 @@ class ProyectoController:
 
         except ValueError:
             self.view.mostrar_mensaje("Debe ingresar números válidos")
+
+    def ver_empleados(self):
+        id_proyecto = int(input("Ingrese el ID del proyecto: "))
+        empleados = ProyectoDAO.ver_empleados(id_proyecto)
+
+        if empleados:
+            for empleado in empleados:
+                print(f"ID: {empleado['id_empleado']} - Nombre: {empleado['nombre']}")
+        else:
+            self.view.mostrar_mensaje("No hay empleados asignados")

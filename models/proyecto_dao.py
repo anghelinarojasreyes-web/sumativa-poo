@@ -127,3 +127,24 @@ class ProyectoDAO:
             return False
         finally:
             conn.close()
+
+    @staticmethod
+    def ver_empleados(id_proyecto):
+        conn = Database().get_connection()
+        empleados = []
+        try:
+            cursor = conn.cursor()
+            cursor.execute(
+                """SELECT empleado.id_empleado, empleado.nombre
+                FROM empleado
+                INNER JOIN empleado_proyecto
+                ON empleado.id_empleado = empleado_proyecto.id_empleado
+                WHERE empleado_proyecto.id_proyecto = ?""",
+                (id_proyecto,)
+            )
+            empleados = cursor.fetchall()
+        except Exception as e:
+            print(f"Error: {e}")
+        finally:
+            conn.close()
+        return empleados
